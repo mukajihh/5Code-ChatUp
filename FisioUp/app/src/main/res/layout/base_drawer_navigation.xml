@@ -1,11 +1,11 @@
 <!-- A DrawerLayout is intended to be used as the top-level content view using match_parent for both width and height to consume the full space available. -->
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- As the main content view, the view below consumes the entire
-         space available using match_parent in both dimensions. -->
     <FrameLayout
         android:id="@+id/container_content"
         android:layout_width="match_parent"
@@ -16,15 +16,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"></FrameLayout>
 
-        <include layout="@layout/custom_toolbar" />
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar" />
     </FrameLayout>
 
-    <fragment
-        android:id="@+id/navigation_drawer"
-        android:name="com.example.murillo.fisioup.view.fragments.NavigationDrawerFragment"
+    <android.support.design.widget.NavigationView
+        android:id="@+id/left_drawer"
         android:layout_width="@dimen/navigation_drawer_width"
-        android:layout_height="fill_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:layout="@layout/fragment_navigation_drawer" />
+        android:fitsSystemWindows="true"
+        app:menu="@menu/drawer_item_list"/>
 
 </android.support.v4.widget.DrawerLayout>
