@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class NavigationDrawerActivity extends AppCompatActivity{
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
+    private ArrayList<String> list = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
