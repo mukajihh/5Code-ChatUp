@@ -15,6 +15,8 @@ import android.widget.ListView;
 import com.example.murillo.fisioup.R;
 import com.example.murillo.fisioup.model.adapters.NavigationDrawerListAdapter;
 
+import java.util.ArrayList;
+
 public class NavigationDrawerActivity extends AppCompatActivity{
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -34,6 +36,10 @@ public class NavigationDrawerActivity extends AppCompatActivity{
         toggle.syncState();
 
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
+        list.add("Chat");
+        list.add("Leitos");
+        list.add("Biblioteca");
 
         mDrawerList.setAdapter(new NavigationDrawerListAdapter(this));
     }

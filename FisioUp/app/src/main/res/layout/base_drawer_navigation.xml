@@ -21,12 +21,12 @@
             layout="@layout/custom_toolbar" />
     </FrameLayout>
 
-    <android.support.design.widget.NavigationView
+    <ListView
         android:id="@+id/left_drawer"
         android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:menu="@menu/drawer_item_list"/>
+        android:background="#fff"/>
 
 </android.support.v4.widget.DrawerLayout>
