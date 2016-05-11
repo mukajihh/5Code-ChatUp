@@ -54,6 +54,4 @@ public class NavigationDrawerActivity extends AppCompatActivity{
             super.onBackPressed();
         }
     }
-
-
 }
