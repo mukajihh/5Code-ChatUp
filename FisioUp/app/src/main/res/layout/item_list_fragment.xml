@@ -12,9 +12,7 @@
         android:id="@+id/list_ic"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:scaleType="fitXY"
-        tools:src="@drawable/icone_leito"
-        tools:background="@color/white"/>
+        tools:src="@drawable/ic_launcher"/>
     <TextView
         android:id="@+id/list_text"
         android:layout_width="match_parent"
