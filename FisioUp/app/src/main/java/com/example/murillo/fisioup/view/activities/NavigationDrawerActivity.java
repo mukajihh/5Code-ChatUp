@@ -1,25 +1,35 @@
 package com.example.murillo.fisioup.view.activities;
 
-
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.murillo.fisioup.R;
 import com.example.murillo.fisioup.model.adapters.NavigationDrawerListAdapter;
+import com.example.murillo.fisioup.view.fragments.ChatFragment;
+import com.example.murillo.fisioup.view.fragments.LeitosFragment;
+import com.example.murillo.fisioup.view.fragments.LibraryFragment;
 
 import java.util.ArrayList;
 
 public class NavigationDrawerActivity extends AppCompatActivity{
+    public static final int CHAT_POSITION = 0;
+    public static final int LEITOS_POSITION = 1;
+    public static final int LIBRARY_POSITION = 2;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
+    private ArrayList<String> list = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +50,49 @@ public class NavigationDrawerActivity extends AppCompatActivity{
         list.add("Chat");
         list.add("Leitos");
         list.add("Biblioteca");
+        mDrawerList.setAdapter(new NavigationDrawerListAdapter(this, R.layout.item_list_fragment, list));
 
-        mDrawerList.setAdapter(new NavigationDrawerListAdapter(this));
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                onNavigationDrawerItemSelected(position);
+            }
+        });
+
+        openChat();
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+    }
+
+    public void onNavigationDrawerItemSelected(int position){
+        switch (position){
+            case CHAT_POSITION :
+                openChat();
+                break;
+            case LEITOS_POSITION :
+                openLeito();
+                break;
+            case LIBRARY_POSITION :
+                openLibrary();
+                break;
+        }
+    }
+
+    private void openChat() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, ChatFragment.newInstance());
+        fragmentTransaction.commit();
+    }
+
+    private void openLeito() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, LeitosFragment.newInstance());
+        fragmentTransaction.commit();
+    }
+
+    private void openLibrary() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, LibraryFragment.newInstance());
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -53,6 +104,4 @@ public class NavigationDrawerActivity extends AppCompatActivity{
             super.onBackPressed();
         }
     }
-
-
 }

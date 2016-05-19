@@ -1,8 +1,10 @@
 package com.example.murillo.fisioup.model.adapters;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,12 +13,13 @@ import com.example.murillo.fisioup.R;
 
 import org.w3c.dom.Text;
 
+import java.util.List;
 import java.util.zip.Inflater;
 
 /**
- * Created by Carrefour Limão on 27/04/2016.
+ * Created by mukajihh on 27/04/2016.
  */
-public class NavigationDrawerListAdapter extends BaseAdapter {
+public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
 
     public static final int CHAT_POSITION = 0;
     public static final int LEITOS_POSITION = 1;
@@ -24,23 +27,9 @@ public class NavigationDrawerListAdapter extends BaseAdapter {
 
     private Activity activity;
 
-    public NavigationDrawerListAdapter(Activity activity){
-        this.activity = activity;
-    }
-
-    @Override
-    public int getCount() {
-        return 0;
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
+    public NavigationDrawerListAdapter(Context context, int resource, List<String> objects) {
+        super(context, resource, objects);
+        activity = (Activity) context;
     }
 
     @Override
@@ -54,12 +43,15 @@ public class NavigationDrawerListAdapter extends BaseAdapter {
         switch (position){
             case CHAT_POSITION:
                 holder.text.setText("Chat");
+                holder.ic.setImageResource(R.drawable.icone_chat);
                 break;
             case LEITOS_POSITION:
                 holder.text.setText("Leitos");
+                holder.ic.setImageResource(R.drawable.icone_leito);
                 break;
             case LIBRARY_POSITION:
                 holder.text.setText("Biblioteca");
+                holder.ic.setImageResource(R.drawable.icone_biblioteca);
                 break;
         }
         view.setTag(holder);
