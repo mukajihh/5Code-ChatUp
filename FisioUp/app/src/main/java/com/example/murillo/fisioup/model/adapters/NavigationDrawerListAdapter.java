@@ -5,16 +5,12 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.murillo.fisioup.R;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * Created by mukajihh on 27/04/2016.
@@ -34,7 +30,7 @@ public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = activity.getLayoutInflater().inflate(R.layout.item_list_fragment, null);
+        View view = activity.getLayoutInflater().inflate(R.layout.item_list_chat_fragment, null);
         Holder holder = new Holder();
 
         holder.ic = (ImageView) view.findViewById(R.id.list_ic);
@@ -47,7 +43,7 @@ public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
                 break;
             case LEITOS_POSITION:
                 holder.text.setText("Leitos");
-                holder.ic.setImageResource(R.drawable.icone_leito);
+                holder.ic.setImageResource(R.drawable.ic_leito);
                 break;
             case LIBRARY_POSITION:
                 holder.text.setText("Biblioteca");

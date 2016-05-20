@@ -19,9 +19,8 @@ public class ChatFragment extends Fragment{
         return new ChatFragment();
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat_activity, container, false);
         EditText editText = (EditText) view.findViewById(R.id.message_content);
         return view;

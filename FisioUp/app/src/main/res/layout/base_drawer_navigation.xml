@@ -14,7 +14,8 @@
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></FrameLayout>
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"></FrameLayout>
 
         <include
             android:id="@+id/toolbar"
@@ -26,6 +27,7 @@
         android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:paddingTop="10dp"
         android:fitsSystemWindows="true"
         android:background="#fff"/>
 
