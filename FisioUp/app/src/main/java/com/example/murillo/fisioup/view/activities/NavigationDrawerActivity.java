@@ -84,12 +84,14 @@ public class NavigationDrawerActivity extends AppCompatActivity{
     private void openLeito() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, LeitoFragment.newInstance());
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
     private void openLibrary() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, LibraryFragment.newInstance());
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
