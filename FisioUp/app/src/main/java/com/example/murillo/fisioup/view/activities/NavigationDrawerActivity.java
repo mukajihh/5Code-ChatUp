@@ -1,5 +1,6 @@
 package com.example.murillo.fisioup.view.activities;
 
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -77,21 +78,19 @@ public class NavigationDrawerActivity extends AppCompatActivity{
 
     private void openChat() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container, ChatFragment.newInstance());
+        fragmentTransaction.replace(R.id.container, ChatFragment.newInstance(), "ChatFragment");
         fragmentTransaction.commit();
     }
 
     private void openLeito() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container, LeitoFragment.newInstance());
-        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(R.id.container, LeitoFragment.newInstance(), "LeitoFragment");
         fragmentTransaction.commit();
     }
 
     private void openLibrary() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container, LibraryFragment.newInstance());
-        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(R.id.container, LibraryFragment.newInstance(), "LibraryFragment");
         fragmentTransaction.commit();
     }
 
@@ -101,7 +100,14 @@ public class NavigationDrawerActivity extends AppCompatActivity{
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            Fragment fragment = getSupportFragmentManager().findFragmentByTag("ChatFragment");
+            if (fragment != null && fragment.isVisible()){
+                super.onBackPressed();
+            }else{
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, ChatFragment.newInstance(), "ChatFragment");
+                fragmentTransaction.commit();
+            }
         }
     }
 }
