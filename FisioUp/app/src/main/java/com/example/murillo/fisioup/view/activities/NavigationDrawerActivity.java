@@ -58,7 +58,7 @@ public class NavigationDrawerActivity extends AppCompatActivity{
             }
         });
 
-        openChat();
+        onNavigationDrawerItemSelected(CHAT_POSITION);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 

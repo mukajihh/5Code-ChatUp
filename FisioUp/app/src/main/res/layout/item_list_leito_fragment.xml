@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         tools:text="Leito 1"
         android:id="@+id/list_text"
-        android:textSize="40px"
-        android:textColor="@color/colorPrimary"/>
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary" />
 
 </LinearLayout>

@@ -38,7 +38,6 @@ public class LeitoFragmentAdapter extends ArrayAdapter<String>{
     }
 
     private class Holder{
-        ImageView ic;
         TextView text;
     }
 }
